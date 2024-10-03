@@ -1,8 +1,12 @@
 @Autor
 Laura Figueredo 202114933
+@Asignatura 
+Bases de Datos II
+@Ingeniero
+Mauro Pita
 # Explicación de la consulta SQL
 La consulta está diseñada para obtener una lista de todas las posibles **combinaciones de trabajos y departamentos** que no están asignadas a ningún empleado actual ni a ningún registro histórico de empleo. 
-A continuación se explica el propósito de cada parte del código y por qué es necesario el `WHERE e.job_id IS NULL AND jh.job_id IS NULL`.
+A continuación se explica el propósito de cada parte del código y por qué `WHERE e.job_id IS NULL AND jh.job_id IS NULL` es una parte importante en esta consulta.
 
 ## Desglose de la consulta:
 
@@ -71,6 +75,6 @@ Si hacemos un `CROSS JOIN`, se obtendria estas combinaciones:
 
 Luego, los `LEFT JOIN` revisarán si alguno de esos trabajos está ocupado por empleados actuales o históricos en ese departamento. Si un empleado actual trabaja como "Manager" en "HR", esa combinación (Manager - HR) **no será incluida en los resultados** porque el `WHERE` no lo permitirá (su `e.job_id` no será `NULL`). Lo mismo aplica si el trabajo aparece en el historial de un empleado.
 
-## Resumen
+## Punto clave, (analogía con el **complemento** del conjunto que continen los trabajos asignados a cierto departamento )
 
 El `WHERE e.job_id IS NULL AND jh.job_id IS NULL` es necesario para filtrar solo las combinaciones de trabajo y departamento que **nunca han sido ocupadas** por un empleado actual ni en el pasado.
