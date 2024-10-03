@@ -39,7 +39,6 @@ ORDER BY
 - `hr.jobs j`: Se selecciona la tabla de trabajos (`jobs`), alias `j`.
 - `CROSS JOIN hr.departments d`: 
   - Se hace un `CROSS JOIN` entre `jobs` y `departments`. Esto genera una combinación cartesiana, es decir, cada trabajo se combina con cada departamento, resultando en todas las posibles combinaciones de trabajos y departamentos.
-  - Ejemplo: Si hay 5 trabajos y 4 departamentos, el `CROSS JOIN` creará 20 combinaciones posibles (5x4).
 
 ### 3. LEFT JOIN (primero)
 - `LEFT JOIN hr.employees e ON e.job_id = j.job_id AND e.department_id = d.department_id`:
@@ -63,11 +62,11 @@ ORDER BY
 
 ## Ejemplo:
 
-Supón que tienes:
+Si se tiene:
 - 2 trabajos: `Manager` y `Developer`.
 - 2 departamentos: `HR` y `IT`.
 
-Si hacemos un `CROSS JOIN`, se obtendria estas combinaciones:
+Y se hace un `CROSS JOIN`, se obtendria estas combinaciones:
 1. Manager - HR
 2. Manager - IT
 3. Developer - HR
